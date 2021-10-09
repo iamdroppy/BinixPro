@@ -1,0 +1,14 @@
+﻿<ContentMenu>
+    <MenuItem Url="/" Text="Dashboard" Icon="fa fa-atom"></MenuItem>
+    <MenuItem Url="@($"/clusters/{Zone.ToString()}")" Text="Clusters" Icon="fa fa-wind"></MenuItem>
+    <MenuItem Url="@($"/firewall/{Zone.ToString()}")" Text="Firewall" Icon="fa fa-spider"></MenuItem>
+    <MenuItem Url="/" Text="Threats" Icon="fa fa-ghost"></MenuItem>
+    <MenuItem Url="/" Text="Shield" Icon="fa fa-user-shield"></MenuItem>
+</ContentMenu>
+
+@code
+{
+    [Parameter] public Guid Zone { get; set; }
+    
+    
+}

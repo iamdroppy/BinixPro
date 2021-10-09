@@ -1,0 +1,35 @@
+﻿@page "/info/{id:guid}"
+<TopMenu Zone="Id"/>
+
+<div class="row">
+<div class="col-md-6 col-sm-12">
+    <Card Title="Log Overview" Subtitle="View the latest logs">
+        <ul>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+            <li>GET https://test.ferri.sh HTTP/1.1</li>
+        </ul>
+    </Card>
+</div>
+
+<div class="col-md-6 col-sm-12">
+    <Card Title="Analytics Overview" Subtitle="Latest requests in 24 hours">
+        Content
+    </Card>
+</div>
+</div>
+@code
+{
+    [Parameter] public Guid Id { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+        
+    }
+}

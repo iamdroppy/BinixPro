@@ -1,0 +1,17 @@
+﻿@page "/clusters/{id:guid}"
+@using BinixPro.Shared.Clusters
+
+<TopMenu/>
+<ClusterCreateView ZoneId="Id"></ClusterCreateView>
+<ClusterListView ZoneId="Id"/>
+
+@code
+{
+    [Parameter] public Guid Id { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+        
+    }
+}

@@ -1,0 +1,14 @@
+﻿@page "/"
+@using BinixPro.Shared.Zones
+
+<button type="button" style="margin: 25px; width: calc(100% - (25px * 2))" class="btn btn-primary" @onclick="() => { _invisibleCreateZone = !_invisibleCreateZone; }">Create Zone</button>
+@if (!_invisibleCreateZone)
+{
+    <CreateZoneView OnSave="StateHasChanged"></CreateZoneView> 
+}
+<ZoneListView/>
+
+@code
+{
+    private bool _invisibleCreateZone = true;
+}

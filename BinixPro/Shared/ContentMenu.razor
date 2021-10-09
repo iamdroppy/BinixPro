@@ -1,0 +1,11 @@
+﻿<div class="content" style="text-align: center; margin: 10px">
+    <ul class="content-menu">
+        @ChildContent
+    </ul>
+</div>
+
+
+@code
+{
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}

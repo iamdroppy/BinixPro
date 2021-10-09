@@ -1,0 +1,13 @@
+<div class="card" style="padding: 5px">
+    <div class="card-body">
+        <div class="card-title"><h2>@Title</h2></div>
+        <div class="card-subtitle"><h5><i>@Subtitle</i></h5></div>
+        <hr/>
+        @ChildContent
+    </div>
+</div>
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Subtitle { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}
