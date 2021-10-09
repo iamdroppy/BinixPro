@@ -1,0 +1,23 @@
+{
+  "name": "binix-pro",
+  "version": "1.0.0",
+  "description": "Reverse-proxy",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass ./sass:./css --watch",
+    "build": "sass ./sass:./css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamdroppy/BinixPro.git"
+  },
+  "author": "Lucca Ferri",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/iamdroppy/BinixPro/issues"
+  },
+  "homepage": "https://github.com/iamdroppy/BinixPro#readme",
+  "dependencies": {
+    "scss": "^0.2.4"
+  }
+}

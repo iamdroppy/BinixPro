@@ -1,0 +1,99 @@
+body {
+  font-family: "Roboto" !important;
+}
+
+#blazor-error-ui {
+  visibility: hidden;
+}
+
+.success {
+  color: #85A60F !important;
+}
+
+.bg-success {
+  color: #85A60F;
+}
+
+.success-darker {
+  color: #7F8C16 !important;
+}
+
+.bg-success-darker {
+  color: #7F8C16;
+}
+
+.primary {
+  color: #1E68A8 !important;
+}
+
+.bg-primary {
+  color: #1E68A8;
+}
+
+.primary-darker {
+  color: #2E6F8F !important;
+}
+
+.bg-primary-darker {
+  color: #2E6F8F;
+}
+
+.warning {
+  color: #E6B855 !important;
+}
+
+.bg-warning {
+  color: #E6B855;
+}
+
+.warning-darker {
+  color: #A67926 !important;
+}
+
+.bg-warning-darker {
+  color: #A67926;
+}
+
+.danger {
+  color: #D90404 !important;
+}
+
+.bg-danger {
+  color: #D90404;
+}
+
+.danger-darker {
+  color: #8C0303 !important;
+}
+
+.bg-danger-darker {
+  color: #8C0303;
+}
+
+.content-menu {
+  list-style: none;
+  display: inline;
+}
+.content-menu li {
+  display: inline;
+}
+.content-menu li .menu-item {
+  width: 100px;
+  height: 100px;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: lightgray;
+  background-color: #394fb3;
+  text-align: center;
+  color: white;
+}
+.content-menu li .menu-item .icon {
+  font-size: 48px;
+  padding-top: 20px;
+}
+.content-menu li .menu-item:hover {
+  background-color: #283a86;
+}
+
+/*# sourceMappingURL=app.css.map */
