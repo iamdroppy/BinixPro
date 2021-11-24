@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["BinixPro/BinixPro.csproj", "BinixPro/"]
-RUN dotnet restore "BinixPro/BinixPro.csproj"
+COPY ["BinixPro.Node/BinixPro.Node.csproj", "BinixPro.Node/"]
+RUN dotnet restore "BinixPro.Node/BinixPro.Node.csproj"
 COPY . .
-WORKDIR "/src/BinixPro"
-RUN dotnet build "BinixPro.csproj" -c Release -o /app/build
+WORKDIR "/src/BinixPro.Node"
+RUN dotnet build "BinixPro.Node.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BinixPro.csproj" -c Release -o /app/publish
+RUN dotnet publish "BinixPro.Node.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BinixPro.dll"]
+ENTRYPOINT ["dotnet", "BinixPro.Node.dll"]

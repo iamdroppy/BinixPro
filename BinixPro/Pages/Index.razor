@@ -1,14 +1,17 @@
 ﻿@page "/"
-@using BinixPro.Shared.Zones
 
-<button type="button" style="margin: 25px; width: calc(100% - (25px * 2))" class="btn btn-primary" @onclick="() => { _invisibleCreateZone = !_invisibleCreateZone; }">Create Zone</button>
-@if (!_invisibleCreateZone)
-{
-    <CreateZoneView OnSave="StateHasChanged"></CreateZoneView> 
-}
-<ZoneListView/>
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
 
 @code
 {
-    private bool _invisibleCreateZone = true;
+    private async Task GetZonesAsync()
+    {
+
+    }
 }

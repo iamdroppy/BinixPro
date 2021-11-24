@@ -1,4 +1,4 @@
-namespace BinixPro.Data;
+namespace BinixPro.Node;
 
 public class WeatherForecast
 {

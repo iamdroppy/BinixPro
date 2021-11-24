@@ -1,12 +1,19 @@
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
+
+<PageTitle>BinixPro</PageTitle>
 
 <div class="page">
-    
-    <div class="main">
-        <NavMenu/>
-        
-        <div class="content px-4 white">
-            @Body
-        </div>
+    <div class="sidebar">
+        <NavMenu />
     </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
 </div>
