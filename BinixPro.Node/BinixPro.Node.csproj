@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BinixPro.Database\BinixPro.Database.csproj" />
     <ProjectReference Include="..\BinixPro.Storage\BinixPro.Storage.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +8,38 @@ using Microsoft.Extensions.Primitives;
 using StackExchange.Redis;
 
 namespace BinixPro.Storage;
+
+class Host
+{
+    [Key]
+    public Guid Id { get; set; }
+    [Required, MinLength(1)] public string Hostname { get; set; } = string.Empty;
+}
+
+class Cluster
+{
+    [Key] public Guid Id { get; set; }
+    [ForeignKey(nameof(Host))] public Guid HostId { get; set; }
+    [Required, MinLength(1)] public string SubDomain { get; set; } = string.Empty;
+
+    public virtual Host Host { get; set; }
+    public virtual ICollection<Route> Routes { get; set; }
+}
+
+class Route
+{
+    [Key] public Guid Id { get; set; }
+    [ForeignKey(nameof(Cluster))] public Guid ClusterId { get; set; }
+    [Required, MinLength(1)] public string ForwardUrl { get; set; } = string.Empty;
+
+    /// <summary>
+    /// If set to false, the hostname will match the Cluster's subdomain and Host's hostname,
+    /// otherwise, it will use ForwardUrl's host
+    /// </summary>
+    public bool RealHostname { get; set; } = true;
+
+    public virtual Cluster Cluster { get; set; }
+}
 
 
 public class InvalidConfigurationException : ArgumentException
@@ -31,7 +65,7 @@ public static class StorageExtensions
 
         return services
             .AddSingleton<IStorageOptions>(storageOptions)
-            .AddSingleton<RedisContext>();
+            .AddScoped<RedisContext>();
     }
 }
 

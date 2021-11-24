@@ -1,31 +1,24 @@
+using BinixPro.Database.Models;
+using BinixPro.Database.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinixPro.Node.Controllers;
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class RouteController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly ILogger<RouteController> _logger;
+    private readonly IProxyService _proxyService;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public RouteController(ILogger<RouteController> logger, IProxyService proxyService)
     {
         _logger = logger;
+        _proxyService = proxyService;
     }
-
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    
+    [HttpPost]
+    public async Task<ActionResult<Database.Models.Route.Response>> Post([FromBody] Database.Models.Route.Request model)
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        return Ok(await _proxyService.CreateRouteAsync(model));
     }
 }

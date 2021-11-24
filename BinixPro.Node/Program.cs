@@ -1,3 +1,4 @@
+using BinixPro.Database;
 using BinixPro.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
 {
     // ASP.NET Core API services
     services.AddEndpointsApiExplorer().AddSwaggerGen().AddControllers();
-    services.AddRedisStorage(configuration.GetSection("Redis"));
+    services.AddBinixDb("binix.db");
 }
 
 void Configure(WebApplication app)
